@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author noarogoszinski
- *
- */
-module AsciiArt {
-}
