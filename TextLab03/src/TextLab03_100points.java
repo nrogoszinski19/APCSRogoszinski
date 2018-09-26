@@ -20,10 +20,11 @@ public class TextLab03_100points {
 		System.out.println("Minutes:\t\t" + minutes);
 		
 		int remainder2 = remainder%60000;
+		int seconds = remainder2/1000;
 		
-		System.out.println("Seconds:\t\t" + remainder2);
+		System.out.println("Seconds:\t\t" + seconds);
 		
-		int remainder3 = remainder2%60000;
+		int remainder3 = remainder2%1000;
 		
 		System.out.println("Milli Seconds:\t\t" + remainder3);
 	}
