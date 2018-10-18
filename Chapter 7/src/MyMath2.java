@@ -29,10 +29,10 @@ public class MyMath2 {
 		double option = keyboard.nextInt();
 		
 		if(option == 0) {
-			System.out.print("Side 1:  ");										
-			double side1 = keyboard.nextInt();
 			System.out.print("Hypotenuse:  ");										
 			double hypo = keyboard.nextInt();
+			System.out.print("Side 1:  ");										
+			double side1 = keyboard.nextInt();
 			return Math.sqrt(Math.pow(hypo, 2) - Math.pow(side1,  2));
 		}
 		if(option == 1) {
