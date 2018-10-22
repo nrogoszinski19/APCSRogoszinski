@@ -6,11 +6,13 @@ public class ArrayMethod {
 		int[] numArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 		
 		
-		//System.out.println(six(numArray));
+		System.out.println(six(numArray));
 		
-		System.out.println(reverse(array));
+		int[] reversedArray = reverse(numArray);
+		for(int x = 0; x <reversedArray.length; x++)
+			System.out.print(reversedArray[x]);
 	}
-	/*
+	
 	public static boolean six(int[] testArray) {
 		
 		boolean exists = false;
@@ -25,14 +27,14 @@ public class ArrayMethod {
 		
 		return exists;
 	}
-	*/
+	
 	
 	public static int[] reverse(int[] array) {
 		int[] reversed = new int[array.length];
-		for(int x=0; x<array.length; x++) {
-			reversed[array.length-x] = array[x];
+		for(int x=0; x < array.length; x++) {
+			reversedArray[array.length-x-1] = array[x];
 		}
-		return array;
+		return reversedArray;
 	}
 	
 }}
