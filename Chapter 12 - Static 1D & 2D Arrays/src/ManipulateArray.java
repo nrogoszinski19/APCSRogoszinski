@@ -29,12 +29,32 @@ public class ManipulateArray {
 				System.out.println(i);
 		}
 		
+		
+	}
+	
+	//Write a Java program to find the index of an array element
+	
+	public static int findIndex (int[] array, int t) {
+		if(array == null) return 1;
+		int len = array.length;
+		int i = 0;
+		while(i<len) {
+			if(array[i] == t) return i;
+			else i=i+1;
+		}
+		return -1;
+	}
+	
 	//Challenge: remove a specific element from the array and return the array without the value
+	
+	public static int[] removeArray(int[] oldArray, int num) {
+		int[] newArray = new ont[oldArray.length-1];
 		
-		int[] output = remove(array, 22); // removes number 22 from array
-		System.out.println(output[]);
-
-		
+		for(int k=0; k < oldArray; k++) {
+			//check to see if the item in the old array
+			//if its not, then you want to copy over the item into newArray
+		}
+		return newArray;
 	}
 
 }
