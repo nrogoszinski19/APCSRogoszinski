@@ -23,9 +23,13 @@ public class TicTacToeFinal {
 			userInput();
 				
 		checkWinner();
-		if (true)
+		if (true) {
+			if (player == 'X')
+				player = 'O';
+	        else
+	        	player = 'X';
 			System.out.println("Player " + player + " is the winner!");
-		
+		}
 	}
 	
 	//method to create the board
