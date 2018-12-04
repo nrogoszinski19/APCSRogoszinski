@@ -1,6 +1,6 @@
 public class CheckingAccount extends Account {
 	
-	protected double overdraftAmount;
+	private double overdraftAmount;
 	
 	public CheckingAccount(double initBalance, double overdraft){
 		super(initBalance);
@@ -12,16 +12,28 @@ public class CheckingAccount extends Account {
 	}
 	
 	public boolean withdraw(double amt) {
-		boolean afford = false;
-		if(amt > balance) {
-			if(amt < overdraftAmount) {
-				afford = true;
-			}
+		boolean afford = true;
+		double total = balance + overdraftAmount;
+		if(total-amt<0) {
+			afford = false;
+			System.out.println("Withdraw " + amt + ": " + afford);
 		}
-		else if(amt < balance) {
+		else {
+			if(amt>balance){
+				overdraftAmount = overdraftAmount - (amt-balance);
+				balance = 0;
+			}
+			else {
+				balance = balance - amt;
+			}
 			afford = true;
+			System.out.println("Withdraw " + amt + ": " + afford);
 		}
 		return afford;
+	}
+	
+	public double getOverDraft() {
+		return overdraftAmount;
 	}
 	
 }
