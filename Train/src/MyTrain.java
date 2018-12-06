@@ -13,7 +13,6 @@ public class MyTrain extends Applet{
 		TrainCar tc4 = new TrainCar(g,Color.orange,580);
 		TrainCar tc5 = new TrainCar(g,Color.magenta,750);	
 		Caboose cab = new Caboose(g,920);
-		
 	}
 
 }

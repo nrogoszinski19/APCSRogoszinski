@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Caboose extends TrainCar{
 	
@@ -9,8 +8,7 @@ public class Caboose extends TrainCar{
 		super(g,Color.red,x1);
 		x = x1;
 		drawWindows(g);
-		drawTop(g);
-		drawTippyTop(g);
+		drawCoal(g);
 	}
 	
 	public void drawWindows(Graphics g){
@@ -19,14 +17,18 @@ public class Caboose extends TrainCar{
 	    g.fillRect(x+90,280,30,30);
 	}
 	
-	public void drawTop(Graphics g){
-	    g.setColor(Color.red);
-	    g.fillRect(x+50,240,60,10);
+	public void drawCoal(Graphics g) {
+		Polygon coal = new Polygon();
+		coal.addPoint(x, 250);
+		coal.addPoint(x+30, 230);
+		coal.addPoint(x+30, 210);
+		coal.addPoint(x+60, 210);
+		coal.addPoint(x+75, 200);
+		coal.addPoint(x+100, 210);
+		coal.addPoint(x+120, 220);
+		coal.addPoint(x+120, 230);
+		coal.addPoint(x+150, 250);
+		g.setColor(Color.black);
+		g.fillPolygon(coal);
 	}
-	
-	public void drawTippyTop(Graphics g){
-	    g.setColor(Color.black);
-	    g.fillRect(x+40,235,80,5);
-	}
-	
 }
