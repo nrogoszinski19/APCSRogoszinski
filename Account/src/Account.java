@@ -14,7 +14,11 @@ public class Account {
 		balance = balance + amt;
 	}
 
-	public boolean withdraw(double amt) {
+	public void withdraw(double amt) {
+		balance = balance - amt;
+	}
+	
+	public boolean withdraw2(double amt) {
 		boolean afford = false;
 		double balance2 = balance - amt;
 		if(balance2 >= 0)

@@ -11,7 +11,7 @@ public class CheckingAccount extends Account {
 		super(initBalance);
 	}
 	
-	public boolean withdraw(double amt) {
+	public boolean withdraw2(double amt) {
 		boolean afford = true;
 		double total = balance + overdraftAmount;
 		if(total-amt<0) {
