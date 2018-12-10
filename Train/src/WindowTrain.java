@@ -8,8 +8,7 @@ public class WindowTrain extends TrainCar{
 		public WindowTrain(Graphics g, int x1){
 			super(g,Color.red,x1);
 			x = x1;
-			drawWindows(g);
-			
+			drawWindows(g);	
 		}	
 		
 		public void drawWindows(Graphics g){
