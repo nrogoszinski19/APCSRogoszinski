@@ -10,6 +10,9 @@ public class Person {
 		g.fillOval(x+45, 255, 25, 65);
 		g.fillOval(x-60, 170, 80, 20);
 		g.fillOval(x+50, 170, 80, 20);
+		g.setColor(Color.white);
+		g.fillOval(x+10, 130, 10, 10);
+		g.fillOval(x+50, 130, 10, 10);
 	}
 
 }
