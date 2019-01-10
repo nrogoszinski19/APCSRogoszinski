@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.applet.*;
 
-
 public class Outfits extends Applet{
 	
 	public void paint(Graphics g) {
@@ -15,5 +14,4 @@ public class Outfits extends Applet{
 		Pockets pockets2 = new Pockets(g, 270);
 
 	}
-
 }
