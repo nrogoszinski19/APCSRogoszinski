@@ -32,9 +32,9 @@ public class ArrayMethod {
 	public static int[] reverse(int[] array) {
 		int[] reversed = new int[array.length];
 		for(int x=0; x < array.length; x++) {
-			reversedArray[array.length-x-1] = array[x];
+			reversed[array.length-x-1] = array[x];
 		}
-		return reversedArray;
+		return reversed;
 	}
 	
-}}
+}
