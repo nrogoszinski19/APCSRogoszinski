@@ -24,6 +24,7 @@ public class Calculator implements ActionListener {
 	JButton divide;
 	JButton clear;
 	double shown;
+	double shown2;
 	double solveShown;
 	boolean addBool = false;
 	boolean subBool = false;
@@ -89,36 +90,26 @@ public class Calculator implements ActionListener {
 		String str = e.getActionCommand();
 		
 		//numbers
-		if(str.equals("1")) {
+		if(str.equals("1"))
 			result.setText(result.getText() + "1");
-		}
-		if(str.equals("2")) {
+		if(str.equals("2"))
 			result.setText(result.getText() + "2");
-		}
-		if(str.equals("3")) {
+		if(str.equals("3"))
 			result.setText(result.getText() + "3");
-		}
-		if(str.equals("4")) {
+		if(str.equals("4"))
 			result.setText(result.getText() + "4");
-		}
-		if(str.equals("5")) {
+		if(str.equals("5"))
 			result.setText(result.getText() + "5");
-		}
-		if(str.equals("6")) {
+		if(str.equals("6"))
 			result.setText(result.getText() + "6");
-		}
-		if(str.equals("7")) {
+		if(str.equals("7"))
 			result.setText(result.getText() + "7");
-		}
-		if(str.equals("8")) {
+		if(str.equals("8"))
 			result.setText(result.getText() + "8");
-		}
-		if(str.equals("9")) {
+		if(str.equals("9"))
 			result.setText(result.getText() + "9");
-		}
-		if(str.equals("0")) {
+		if(str.equals("0"))
 			result.setText(result.getText() + "0");
-		}
 		
 		//operations
 		if(str.equals("+")) {
@@ -142,31 +133,29 @@ public class Calculator implements ActionListener {
             divBool = true;
 		}
 		if(str.equals("=")) {
-			solveShown = Double.parseDouble(result.getText());
+			shown2 = Double.parseDouble(result.getText());
             if (addBool == true)
-                solveShown = solveShown + shown;
-            else if ( subBool == true)
-                solveShown = solveShown - shown;
-            else if ( multBool == true)
-                solveShown = solveShown * shown;
-            else if ( divBool == true)
-                solveShown = solveShown / shown;
+                solveShown = shown + shown2;
+            else if (subBool == true)
+                solveShown = shown - shown2;
+            else if (multBool == true)
+                solveShown = shown * shown2;
+            else if (divBool == true)
+                solveShown = shown / shown2;
             result.setText(Double.toString(solveShown));
-
+            
             addBool = false;
             subBool = false;
             multBool = false;
             divBool = false;
 		}
 		
-		if(str.equals("Clear")) {
+		if(str.equals("Clear"))
 			result.setText("");
-		}
 	}
 
 	public static void main(String[] args) {
-		new Calculator();
-		
+		new Calculator();	
 	}
 
 }
