@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -48,6 +49,23 @@ public class Inventory {
 	
 	public String getCond(int index) {
 		return products.get(index).getCond();
+	}
+	
+	public int getAmt(int index) {
+		return products.get(index).getAmt();
+	}
+	
+
+	public void writeData() {
+		try {
+			FileWriter f = new FileWriter("out.txt");
+			for(Car it : products) {
+				f.write(it.getID() + " " + it.getMake() + " "  + it.getModel() + " "  + it.getColor() + " "  + it.getPrice() + " "  + it.getCond() + " "  + it.getAmt() + "\n");
+			}
+			f.close();
+		}catch(Exception error) {
+			System.out.println("There was an error")
+;		}
 	}
 
 }

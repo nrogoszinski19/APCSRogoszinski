@@ -47,5 +47,10 @@ public class Car {
 	public String getCond() {
 		return condition;
 	}
+	
+	public int getAmt() {
+		return amount;
+	}
+	
 
 }
