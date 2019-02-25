@@ -9,9 +9,10 @@ public class TestCar {
 		stock.addItem(c2);
 		
 		int index=stock.findIndexByModel("Challenger");
-		System.out.println("The " + stock.getMake(index) + " " + stock.getModel(index) + " costs $" + stock.getPrice(index));
+		//System.out.println("The " + stock.getMake(index) + " " + stock.getModel(index) + " costs $" + stock.getPrice(index));
 		
 		stock.writeData();
+		stock.readFile();
 	}
 
 }

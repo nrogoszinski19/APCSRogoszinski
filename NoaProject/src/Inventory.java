@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
@@ -64,8 +66,31 @@ public class Inventory {
 			}
 			f.close();
 		}catch(Exception error) {
-			System.out.println("There was an error")
-;		}
+			System.out.println("There was an error");		}
+	}
+	
+	public void readFile() {
+		try {
+			FileReader fr = new FileReader("out.txt");
+			BufferedReader br = new BufferedReader(fr);
+			
+			String line;
+			while((line = br.readLine()) != null){
+				String[] parts = line.split(" ");
+				
+				int id = Integer.parseInt(parts[0]);
+				String make = parts[1];
+				String model = parts[2];
+				String color = parts[3];
+				double price = Double.parseDouble(parts[4]);
+				String cond = parts[5];
+				int amt = Integer.parseInt(parts[6]);
+			}
+			fr.close();
+			
+		}catch(Exception failure) {
+			System.out.println(failure);
+		}
 	}
 
 }
