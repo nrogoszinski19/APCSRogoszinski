@@ -64,9 +64,33 @@ public class GUI implements ActionListener{
 		p2.add(add = new JButton("Add Car"));
 		p2.add(rem = new JButton("Remove Car"));
 		
-		search.addActionListener(this);
-		add.addActionListener(this);
-		rem.addActionListener(this);
+		search.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String str = e.getActionCommand();
+				if(str.equals("Search")) {
+					index = stock.findIndexByModel(e.getText());
+					r.setText(readFile(index));
+				}
+		}});
+		
+		add.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String str = e.getActionCommand();
+				if(str.equals("Add Car")) {
+					
+				}
+		}});
+		
+		rem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String str = e.getActionCommand();
+				if(str.equals("Remove Car")) {
+					
+				}
+		}});
 		
 		myFrame.setLayout(new GridLayout(1, 2));
 		myFrame.setSize(1000, 400);
@@ -74,24 +98,15 @@ public class GUI implements ActionListener{
 		myFrame.add(p1);
 		myFrame.add(p2);
 	}
-
-	public void actionPerformed(ActionEvent e) {
-		String str = e.getActionCommand();
-		if(str.equals("Add Car")) {
-			
-		}
-		
-		if(str.equals("Remove Car")) {
-			
-		}
-		if(str.equals("Search")) {
-			index = stock.findIndexByModel(e.getText());
-			r.setText(readFile(index));
-		}	
-	}
 	
 	public static void main(String[] args) {
 		new GUI();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
