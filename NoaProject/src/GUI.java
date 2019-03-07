@@ -5,11 +5,13 @@ import java.awt.event.ActionListener;
 
 public class GUI implements ActionListener{
 	JFrame myFrame = new JFrame();
-	JTextField info;
-	JLabel blank;
+	JPanel p1 = new JPanel();
+	JPanel p2 = new JPanel();
+
 	JLabel enter;
 	JLabel result;
-	JLabel id;
+	JLabel blank;
+	JLabel ID;
 	JLabel make;
 	JLabel model;
 	JLabel year;
@@ -17,96 +19,113 @@ public class GUI implements ActionListener{
 	JLabel price;
 	JLabel cond;
 	JLabel amt;
-	JTextField e;
+	
+	JTextField en;
 	JTextField r;
-	JTextField i;
+	JTextField id;
 	JTextField ma;
 	JTextField mo;
-	JTextField y;
+	JTextField ye;
 	JTextField cc;
-	JTextField p;
-	JTextField c;
-	JTextField a;
+	JTextField pr;
+	JTextField con;
+	JTextField am;
+	
 	JButton search;
 	JButton add;
-	JButton rem;
-	int index;
+	JButton save;
+	
 	Inventory stock = new Inventory();
 	
 	public GUI(){
-		JPanel p1 = new JPanel();
-		p1.setLayout(new GridLayout(3,1));
+		stock.readFile();
+		
+		p1.setLayout(new FlowLayout());
 		p1.add(enter = new JLabel("Enter Car Model:"));
-		p1.add(e = new JTextField(" ", 15));
+		p1.add(en = new JTextField(15));
 		p1.add(search = new JButton("Search"));
-		p1.add(blank = new JLabel(" "));
+		p1.add(blank = new JLabel(""));
 		p1.add(result = new JLabel("Result:"));
-		p1.add(r = new JTextField(" ", 15));
+		p1.add(r = new JTextField(15));
 		
-		JPanel p2 = new JPanel();
-		p2.setLayout(new GridLayout(9,2));
-		p2.add(id = new JLabel("ID: "));
-		p2.add(i = new JTextField(" ", 15));
+		p2.setLayout(new FlowLayout());
+		p2.add(ID = new JLabel("ID: "));
+		p2.add(id = new JTextField(15));		
 		p2.add(make = new JLabel("Make: "));
-		p2.add(ma = new JTextField(" ", 15));
+		p2.add(ma = new JTextField(15));
 		p2.add(model = new JLabel("Model: "));
-		p2.add(mo = new JTextField(" "));
+		p2.add(mo = new JTextField(15));
 		p2.add(year = new JLabel("Year: "));
-		p2.add(y = new JTextField(" "));
+		p2.add(ye = new JTextField(15));
 		p2.add(color = new JLabel("Color: "));
-		p2.add(cc = new JTextField(" ", 15));
+		p2.add(cc = new JTextField(15));
 		p2.add(price = new JLabel("Price: "));
-		p2.add(p = new JTextField(" ", 15));
+		p2.add(pr = new JTextField(15));
 		p2.add(cond = new JLabel("Condition: "));
-		p2.add(c = new JTextField(" ", 15));
+		p2.add(con = new JTextField(15));
 		p2.add(amt = new JLabel("Amount: "));
-		p2.add(a = new JTextField(" ", 15));
+		p2.add(am = new JTextField(15));
 		p2.add(add = new JButton("Add Car"));
-		p2.add(rem = new JButton("Remove Car"));
+		p2.add(save = new JButton("Save"));
 		
-		search.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String str = e.getActionCommand();
-				if(str.equals("Search")) {
-					index = stock.findIndexByModel(e.getText());
-					r.setText(readFile(index));
-				}
-		}});
+		search.addActionListener(this);
+		add.addActionListener(this);
+		save.addActionListener(this);
 		
-		add.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String str = e.getActionCommand();
-				if(str.equals("Add Car")) {
-					
-				}
-		}});
-		
-		rem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String str = e.getActionCommand();
-				if(str.equals("Remove Car")) {
-					
-				}
-		}});
-		
-		myFrame.setLayout(new GridLayout(1, 2));
-		myFrame.setSize(1000, 400);
+		myFrame.setLayout(new GridLayout(2, 1));
+		myFrame.setSize(750, 300);
 		myFrame.setVisible(true);
 		myFrame.add(p1);
 		myFrame.add(p2);
 	}
-	
-	public static void main(String[] args) {
-		new GUI();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String str = e.getActionCommand();
+		if(str.equals("Add Car")) {
+			int i = Integer.parseInt(id.getText().trim());
+			String M = ma.getText();
+			String m = mo.getText();
+			int y = Integer.parseInt(ye.getText());
+			String C = cc.getText();
+			double p = Double.parseDouble(pr.getText());
+			String co = con.getText();
+			int a = Integer.parseInt(am.getText());
+			
+			Car c = new Car(i,M,m,y,C,p,co,a);
+			stock.addItem(c);
+			
+			id.setText("");
+			ma.setText("");
+			mo.setText("");
+			ye.setText("");
+			cc.setText("");
+			pr.setText("");
+			con.setText("");
+			am.setText("");
+		}
 		
+		if(str.equals("Search")) {
+			System.out.println(stock.getSize());
+			int index = stock.findIndexByModel(en.getText());
+			r.setText("ID: " + String.valueOf(stock.getID(index)) + "\n" + 
+					"Make: " + stock.getMake(index) + "\n" + 
+					"Model: " + stock.getModel(index) + "\n" + 
+					"Year: " + String.valueOf(stock.getYear(index)) + "\n" + 
+					"Color: " + stock.getColor(index) + "\n" + 
+					"Price: " + String.valueOf(stock.getPrice(index)) + "\n" + 
+					"Condition: " + stock.getCond(index) + "\n" + 
+					"Quantity: " + String.valueOf(stock.getAmt(index)));
+			}
+		
+		if(str.equals("Save")) {
+			stock.writeData();
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new GUI();
 	}
 
 }

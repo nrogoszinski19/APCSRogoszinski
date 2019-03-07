@@ -18,11 +18,15 @@ public class Inventory {
 		products.remove(c);
 	}
 	public int findIndexByModel(String model) {
-		for(int i=0; i<=products.size(); i++) {
+		for(int i=0; i<products.size(); i++) {
 			if((products.get(i).getModel()).equals(model))
 				return i;
 		}
 		return -1;
+	}
+	
+	public int getSize() {
+		return products.size();
 	}
 	
 	public int getID(int index) {
@@ -81,10 +85,14 @@ public class Inventory {
 				int id = Integer.parseInt(parts[0]);
 				String make = parts[1];
 				String model = parts[2];
-				String color = parts[3];
-				double price = Double.parseDouble(parts[4]);
-				String cond = parts[5];
-				int amt = Integer.parseInt(parts[6]);
+				int year = Integer.parseInt(parts[3]);
+				String color = parts[4];
+				double price = Double.parseDouble(parts[5]);
+				String cond = parts[6];
+				int amt = Integer.parseInt(parts[7]);
+				
+				Car c = new Car(id, make, model, year, color, price, cond, amt);
+				products.add(c);
 			}
 			fr.close();
 			
