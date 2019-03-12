@@ -1,1 +1,2 @@
-1 nissan altima gold 6000.0 used 1
+1 Nissan Altima 2006 Gold 6000.0 Used 1
+2 Dodge Challenger 2018 Black 25000.0 New 1

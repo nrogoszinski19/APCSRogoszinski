@@ -66,7 +66,7 @@ public class Inventory {
 		try {
 			FileWriter f = new FileWriter("out.txt");
 			for(Car it : products) {
-				f.write(it.getID() + " " + it.getMake() + " "  + it.getModel() + " "  + it.getColor() + " "  + it.getPrice() + " "  + it.getCond() + " "  + it.getAmt() + "\n");
+				f.write(it.getID() + " " + it.getMake() + " "  + it.getModel() + " " + it.getYear() + " "  + it.getColor() + " "  + it.getPrice() + " "  + it.getCond() + " "  + it.getAmt() + "\n");
 			}
 			f.close();
 		}catch(Exception error) {
@@ -92,6 +92,8 @@ public class Inventory {
 				int amt = Integer.parseInt(parts[7]);
 				
 				Car c = new Car(id, make, model, year, color, price, cond, amt);
+				System.out.println(c);
+				System.out.println(products.size());
 				products.add(c);
 			}
 			fr.close();
