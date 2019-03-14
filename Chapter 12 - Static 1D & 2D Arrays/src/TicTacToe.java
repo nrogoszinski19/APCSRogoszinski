@@ -2,14 +2,11 @@ import java.util.Scanner;
 
 public class TicTacToe {
 	
-	char[] board = new char [9];
+	static char[] board = new char [9];
 
 	public static void main(String[] args) {
-	
 		Scanner input = new Scanner(System.in);
-		
-	printBoard(board);
-		
+		printBoard(board);
 	}
 	
 	//create a method that prints the board
@@ -20,6 +17,7 @@ public class TicTacToe {
 		System.out.println("  4 | 5 | 6 ");
 		System.out.println("  __|___|___");
 		System.out.println("  7 | 8 | 9 ");
+	return board;
 	}
 
 }

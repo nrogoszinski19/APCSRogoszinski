@@ -48,9 +48,9 @@ public class ManipulateArray {
 	//Challenge: remove a specific element from the array and return the array without the value
 	
 	public static int[] removeArray(int[] oldArray, int num) {
-		int[] newArray = new ont[oldArray.length-1];
+		int[] newArray = new int[oldArray.length-1];
 		
-		for(int k=0; k < oldArray; k++) {
+		for(int k=0; k < oldArray.length; k++) {
 			//check to see if the item in the old array
 			//if its not, then you want to copy over the item into newArray
 		}
